@@ -7,8 +7,7 @@ RUN useradd -m -s /bin/bash -G sudo coder
 RUN echo "coder ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/coder
 
 # auto inject seems to not work with docker-in-docker, install coder cli manually
-# TODO version incompatable with host, doesn't show cpu/mem capacity of workspace
-RUN curl -fsSL https://coder.com/install.sh | sh
+RUN curl -fsSL https://coder.com/install.sh | sh -s --version 2.12.0
 
 USER coder
 
